@@ -35,10 +35,10 @@ def authenticate():
         if user_data['username'] == "Tim":
 
         message = "Welcome, " + user_data['role'] + " Tim!"
-        
+
         elif user_data['username'] == "SrFox":
 
-            message = "Welcome, Administrator Srfox!"
+            message = "Welcome," user_data['role'] "Srfox!"
         else:
             message = "Hello, " + user_data['username'] + "!"
 
