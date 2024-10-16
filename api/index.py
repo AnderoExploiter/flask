@@ -33,8 +33,11 @@ def authenticate():
         
         # Определяем сообщение для конкретного пользователя
         if user_data['username'] == "Tim":
-            message = "Welcome, Owner Tim!"
+
+        message = "Welcome, " + user_data['role'] + " Tim!"
+        
         elif user_data['username'] == "SrFox":
+
             message = "Welcome, Administrator Srfox!"
         else:
             message = "Hello, " + user_data['username'] + "!"
