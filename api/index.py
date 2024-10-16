@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 # URL файла с ключами на GitHub
-GITHUB_KEYS_URL = "https://raw.githubusercontent.com/AnderoExploiter/SynY/refs/heads/main/assets/6Opsk56457K.json"  # Замените на ваш URL
+GITHUB_KEYS_URL = "https://raw.githubusercontent.com/AnderoExploiter/SynY/refs/heads/main/assets/6Opsk56457K.json"
 
 def load_keys():
     response = requests.get(GITHUB_KEYS_URL)
@@ -33,12 +33,9 @@ def authenticate():
         
         # Определяем сообщение для конкретного пользователя
         if user_data['username'] == "Tim":
-
-        message = "Welcome, " + user_data['role'] + " Tim!"
-
+            message = "Welcome, " + user_data['role'] + " Tim!"
         elif user_data['username'] == "SrFox":
-
-            message = "Welcome," user_data['role'] "Srfox!"
+            message = "Welcome, " + user_data['role'] + " SrFox!"
         else:
             message = "Hello, " + user_data['username'] + "!"
 
