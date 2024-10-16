@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 import requests
-import json
 
 app = Flask(__name__)
 
@@ -30,7 +29,20 @@ def authenticate():
 
     # Проверяем, есть ли ключ в загруженных допустимых ключах
     if user_key in valid_keys:
-        return jsonify(valid_keys[user_key]), 200
+        user_data = valid_keys[user_key]
+        
+        # Определяем сообщение для конкретного пользователя
+        if user_data['username'] == "Tim":
+            message = "Welcome, Owner Tim!"
+        elif user_data['username'] == "SrFox":
+            message = "Welcome, Administrator Srfox!"
+        else:
+            message = "Hello, " + user_data['username'] + "!"
+
+        return jsonify({
+            "user_data": user_data,
+            "message": message
+        }), 200
     else:
         return jsonify({"error": "Неверный ключ"}), 401
 
